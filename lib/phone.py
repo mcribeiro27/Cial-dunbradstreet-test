@@ -9,14 +9,15 @@ class FindUrls:
         self.url = url
 
     def find_phone(self):
-        html = requests.get(self)
-        if html.status_code != 200:
-            return None
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                          'Chrome/84.0.4147.89 Safari/537.36',
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        }
+        html = requests.get(self, headers=headers)
         soup = BeautifulSoup(html.text, 'html.parser')
         texto = soup.text
-        regex = re.compile(r'\(?\d{2,4}?\)?\s\d{3,5}\s\d{2,4}|'
-                           r'\+?\d{1,3}?\s\(?\d{2,4}?\)?\s\d{3,5}-?\d{2,4}-\d{2}?|'
-                           r'\(?\d{2,4}?\)?\s\d{3,5}-\d{2,4}')
+        regex = re.compile(r'((?:\+?\d{1,4})?\s(?:\(?\d{2,4}\)?)\s(?:\d{2,5})\-?(?:\d{2,4})(?:\-\d{2})?)')
         phones = regex.findall(texto)
         p = []
         for phone in phones:
@@ -27,8 +28,6 @@ class FindUrls:
 
     def find_img(self):
         html = requests.get(self)
-        if html.status_code != 200:
-            return None
         soup = BeautifulSoup(html.text, 'html.parser')
         for src in soup.find_all('img'):
             r = src.get('src')
