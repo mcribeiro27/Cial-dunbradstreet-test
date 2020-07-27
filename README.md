@@ -39,9 +39,16 @@ O Comando irá instalar todos os módulos necessários para a execução do sist
 ## Configuração
 
 Para a execução do projeto basta criar um arquivo ".txt", com as urls que deseja pesquisar e executar:
+
+Para ambiente Unix
 ```commandline
 cat seu_arquivo.txt | python file.py
 ```
+Para ambiente Windows
+```commandline
+type seu_arquivo.txt | python file.py
+```
+
 Caso desejar usar docker basta executar o docfile para criar a imagem:
 ```commandline
 docker build . -t nome-da-imagem
@@ -91,8 +98,14 @@ The Command will install all the modules necessary for the execution of the syst
 ## Configuration
 
 To execute the project, just create a ".txt" file, with the urls you want to search and execute
+
+For Unix environment
 ```commandline
 cat your_file.txt | python file.py
+```
+For Windows environment
+```commandline
+type seu_arquivo.txt | python file.py
 ```
 If you want to use docker, just run the docfile to create the image
 ```commandline
