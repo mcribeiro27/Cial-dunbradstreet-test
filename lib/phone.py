@@ -33,7 +33,6 @@ class FindUrls:
         return p
 
     def find_img(self):
-
         if Validacao.valid_url(self):
             urls = self
         else:
@@ -45,10 +44,13 @@ class FindUrls:
         }
         html = requests.get(urls, headers=headers)
         soup = BeautifulSoup(html.text, 'html.parser')
-        for src in soup.find_all('img'):
+        for src in soup.find_all(src=re.compile(r'[:lL]ogo+')):
             r = src.get('src')
-            if re.findall(r'[lL]ogo', r):
-                return r
+            if r[0] != 'h':
+                if r[0] == '/':
+                    r = r[1:]
+                    return urls + r
+                return urls + r
             else:
                 return r
 

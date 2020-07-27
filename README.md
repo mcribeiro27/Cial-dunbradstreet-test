@@ -1,22 +1,22 @@
 # Logofone
 
 Este projeto trata de buscar na web os logos e telefones dos sites acessado
-##Começado
+## Começado
 Para acessar o sistema serão necessários os seguintes programas:
 
--[Python 3.8: necessário para a execução do sistema](https://www.python.org/downloads/)
--[Docker: Caso queira rodar apartir de containers](https://www.docker.com/get-started)
+- [Python 3.8: necessário para a execução do sistema](https://www.python.org/downloads/)
+- [Docker: Caso queira rodar apartir de containers](https://www.docker.com/get-started)
 
-##Desenvolvimento
+## Desenvolvimento
 
 Para iniciar o desenvolvimento, é necessário clonar o projeto do Gitlab em um diretório de sua preferência:
 ```buildoutcfg
 cd "diretorio de sua preferencia"
 git clone https://gitlab.com/mcribeiro27/cial-dunbradstreet-test.git
 ```
-##Construção
+## Construção
 
-Para construir o projeto, execute os comando abaixo:
+Para construir o projeto, execute os comandos abaixo dentro da pasta onde baixou o projeto:
 
 Para ambiente Unix
 ```python
@@ -35,7 +35,7 @@ pip install -r requirements.txt
 
 O Comando irá instalar todos os módulos necessários para a execução do sistema
 
-##Configuração
+## Configuração
 
 Para a execução do projeto basta criar um arquivo ".txt", com as urls que deseja pesquisar e executar:
 ```commandline
@@ -46,6 +46,6 @@ Caso desejar usar docker basta executar o docfile para criar a imagem:
 docker build . -t nome-da-imagem
 cat seu_arquivo.txt | docker run -i nome-da-imagem
 ```
-##Licença
+## Licença
 
 não se aplica
