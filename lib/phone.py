@@ -27,7 +27,7 @@ class FindUrls:
         phones = regex.findall(texto)
         p = []
         for phone in phones:
-            ph = phone.replace('-', ' ')
+            ph = phone.replace('-', ' ').strip()
             if len(ph) > 10:
                 p.append(ph)
         return p
